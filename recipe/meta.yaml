@@ -1,0 +1,37 @@
+{% set name = "xicam.xpcs" %}
+{% set version = "1.1.0" %}
+{% set sha256 = "fa6b16ef0b554c1e720bf4138449c7f6fba25fc1bc48c078c5c5eab4e7076be6" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/synchrotrons/Xi-cam.XPCS/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  skip: True  # [py<36]
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python
+    - event-model >=1.13.0b4
+    - scikit-image
+    - scipy
+    - xicam.saxs
+
+test:
+  imports:
+    - xicam.XPCS
+
+about:
+  home: https://github.com/synchrotrons/Xi-cam.XPCS
+  license: BSD 3-clause
+  license_file: LICENSE.md
+  summary: XPCS plugin for Xi-cam
