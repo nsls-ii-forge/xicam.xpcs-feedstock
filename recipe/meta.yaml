@@ -1,6 +1,6 @@
 {% set name = "xicam.xpcs" %}
 {% set version = "1.1.0" %}
-{% set sha256 = "fa6b16ef0b554c1e720bf4138449c7f6fba25fc1bc48c078c5c5eab4e7076be6" %}
+{% set sha256 = "ce20c23e41e78535863fa81a9149c4ec818080ff9791de474fb39fb3f5a0a8ba" %}
 
 package:
   name: {{ name|lower }}
@@ -24,11 +24,14 @@ requirements:
     - event-model >=1.13.0b4
     - scikit-image
     - scipy
+    - xicam.plugins
     - xicam.saxs
 
-test:
-  imports:
-    - xicam.XPCS
+# Commenting out since it's trying to pull xicam.args. Will be uncommented once
+# xicam.args is a separate package.
+# test:
+#   imports:
+#     - xicam.XPCS
 
 about:
   home: https://github.com/synchrotrons/Xi-cam.XPCS
