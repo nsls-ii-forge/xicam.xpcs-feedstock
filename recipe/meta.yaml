@@ -24,6 +24,7 @@ requirements:
     - event-model >=1.13.0b4
     - scikit-image
     - scipy
+    - xicam.plugins
     - xicam.saxs
 
 test:
