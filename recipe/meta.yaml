@@ -1,6 +1,6 @@
 {% set name = "xicam.xpcs" %}
-{% set version = "1.1.0" %}
-{% set sha256 = "ce20c23e41e78535863fa81a9149c4ec818080ff9791de474fb39fb3f5a0a8ba" %}
+{% set version = "1.2.1" %}
+{% set sha256 = "d21dd59a1ee27f0184d19ad14e674d2aa45a4ef484a7ee45542638568fda6643" %}
 
 package:
   name: {{ name|lower }}
@@ -12,8 +12,8 @@ source:
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
-  skip: True  # [py<36]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  skip: true  # [py<36]
 
 requirements:
   host:
